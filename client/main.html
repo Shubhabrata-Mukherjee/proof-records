@@ -1,0 +1,162 @@
+<head>
+  <title>Digital Asset Meteor</title>
+</head>
+
+<body style="background-color:#B2BEB5;">
+<div style="color:#0000FF">
+ 
+
+</div>
+  
+  <table style="width:100%">
+  <tr>
+  <th>
+  {{> hello1}} 
+  </th>
+  <th>
+  {{> hello2}}
+  </th>
+  <th>
+  
+  {{> hello3}}
+  </th>
+<th>
+  
+  {{> hello4}}
+  </th>
+  </tr>
+  </table>
+ 
+  <br><br><br>
+
+ 
+
+
+
+ <style type="text/css">
+h1 {
+    background-color: yellow;
+}
+
+div {
+    background-color: lightblue;
+}
+
+
+
+</style>
+ 
+	    
+<!--<script>
+  // for generating hash from html
+window.onload = function() {
+        var fileInput = document.getElementById('fileInput');
+        var fileDisplayArea = document.getElementById('fileDisplayArea');
+        var abc = document.getElementById('abc');
+
+        fileInput.addEventListener('change', function(e) {
+            var file = fileInput.files[0];
+            var textType = /.*/;
+            var textType1 = /mp4.*/;
+            var textType2 = /mkv.*/;
+
+            if (file.type.match(textType)) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    //fileDisplayArea.innerText = reader.result.toString();
+                    fileDisplayArea.innerText =  web3.sha3(reader.result.toString(),true)
+                    fileDisplayArea1.innerText =  web3.sha3(reader.result.toString(),true)
+                }
+
+                reader.readAsText(file);    
+            } else if(file.type.match(textType1)){
+                 var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    //fileDisplayArea.innerText = reader.result.toString();
+                    fileDisplayArea.innerText =  web3.sha3(reader.result.toString(),true)
+                    fileDisplayArea1.innerText =  web3.sha3(reader.result.toString(),true)
+                }
+
+                reader.readAsText(file); 
+            }
+            else if(file.type.match(textType2)){
+                 var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    //fileDisplayArea.innerText = reader.result.toString();
+                    fileDisplayArea.innerText =  web3.sha3(reader.result.toString(),true)
+                    fileDisplayArea1.innerText =  web3.sha3(reader.result.toString(),true)
+                }
+
+                reader.readAsText(file); 
+            }
+              else {
+                fileDisplayArea.innerText = "File not supported!"
+            }
+        });
+}
+
+</script>-->
+<!--<script language="Javascript">
+
+function IsEmpty(){
+  if(document.forms['frm'].getElementById('fileDisplayArea').value === "")
+  {
+    alert("empty");
+    return false;
+  }
+    return true;
+}
+
+
+</script>-->
+
+</body>
+
+<template name="hello1">
+<form name="frm">
+ Input Hash     :   <input type="text" class="form-control" id="fileDisplayArea" placeholder="0xDEADBEEF" onclick="return IsEmpty();">
+  
+  <button id="submit_hash" type="button">Submit Hash</button>  <input type="reset">
+    <p>{{response4}}</p>
+    <p>{{response5}}</p>
+  <br>
+  </form>
+</template>
+
+<template name="hello2">
+<form>
+ Input Hash     :   <input type="text" class="form-control" id="fileDisplayArea1" placeholder="0xDEADBEEF">
+  
+  <button id="check" type="button">Check Hash</button>  <input type="reset">
+  <p>{{response1}}</p>
+  <p>{{response2}}</p>
+  <br>
+  </form>
+</template>
+
+<template name="hello3">
+<form>
+  
+  <button id="fetch" type="button">Fetch Hash</button>
+  <p>{{response3}}</p>
+  <br>
+  </form>
+</template>
+
+
+<template name="hello4">
+<form>
+		      <h1>Select a text File</h1>
+		      <div>			    
+		    	  <input type="file" id="fileInput">
+          </div>
+          <div>
+		        <pre id="fileDisplayArea"></pre>
+                <button id="make_hash" type="button">Make Hash</button>
+                <p>{{response}}</p>
+          </div>
+</form>
+</template>
